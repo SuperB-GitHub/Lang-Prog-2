@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main8(args);
+        main10(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -134,13 +134,31 @@ public class Laba1 {
         int[] A = {20,3,4,12,-16,31,-50,10,45,36,12,87,65,-43,2,3,6,
             45,4,90,12,23,34,5,-67,43,6,7,30,49,50,42,21,56,70,-7,12,6,
             45,32,-8,10,11,25,-3,0};
-        System.out.println(A);
+        int[] B = getSumDig(A);
+        System.out.println(Arrays.toString(A));
+        System.out.println(Arrays.toString(B));
     }
-    // public static int[] getSort(int[] mass){
-    //     int[] mass2;
-    //     int in=23;
-    //     for (int i = 0; i < mass.length; i++) {
-    //         // int u = in[0];
-    //     }
-    // }
+    public static int[] getSumDig(int[] mass){
+        int[] mass2 = new int[mass.length];
+        int sum=0;
+        for (int i = 0; i < mass.length; i++) {
+            int num = mass[i];
+            while (num != 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            mass2[i]=sum;
+            sum=0;
+        }
+        return mass2;
+    }
+    public static int[] getSorted (int[] mass, int[] mass2) {
+        int[] mass1 = new int[mass.length];
+        int p = 1;
+        while (p!=0) {
+            for (int i = 0; i < mass.length; i++) {
+                
+            } 
+        }
+    }
 }
