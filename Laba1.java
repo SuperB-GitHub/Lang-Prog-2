@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main14(args);
+        main15(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -197,7 +197,23 @@ public class Laba1 {
         System.out.println(fin);
         in.close();
     }
-    // public static void main15(String[] args) {
-        
-    // }
+    public static void main15(String[] args) {
+        int[] A = {20,3,4,12,-16,31,-50,10,45,36,12,87,65,-43,2,3,6,
+            45,4,90,12,23,34,5,-67,43,6,7,30,49,50,42,21,56,70,-7,12,6,
+            45,32,-8,10,11,25,-3,0};
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        System.out.println(getBinSearch(A, num));
+        System.out.println(Arrays.binarySearch(A, 23));
+        in.close();
+    }
+    public static int getBinSearch(int[] mass, int find) {
+        Arrays.sort(mass);
+        if (find<mass[mass.length/2]) {
+            
+        } else {
+            
+        }
+        return mass[0];
+    }
 }
