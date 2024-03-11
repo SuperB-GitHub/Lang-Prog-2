@@ -1,10 +1,11 @@
 package Labs;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main10(args);
+        main13(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -152,13 +153,39 @@ public class Laba1 {
         }
         return mass2;
     }
-    public static int[] getSorted (int[] mass, int[] mass2) {
-        int[] mass1 = new int[mass.length];
-        int p = 1;
-        while (p!=0) {
-            for (int i = 0; i < mass.length; i++) {
+    // public static int[] getSorted (int[] mass, int[] mass2) {
+    //     int[] mass1 = new int[mass.length];
+    //     int p = 1;
+    //     while (p!=0) {
+    //         for (int i = 0; i < mass.length; i++) {
                 
-            } 
+    //         } 
+    //     }
+    // }
+    public static void main12(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        System.out.println("Ваше число имеет: "+getCateg(num)+" разряда");
+        in.close();
+    }
+    public static int getCateg(int num){
+        int fin=0;
+        while (num!=0) {
+            num /= 10;
+            fin+=1;
         }
+        return fin;
+    }
+    public static void main13(String[] args) {
+        int s=0;
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        for (int i = 1; i <= 5; i++) {
+            s+=(-1)*i*(num/getFact(i));}
+        System.out.println("Значение: "+s);
+        in.close();
+    }
+    public static void main14(String[] args) {
+        
     }
 }
