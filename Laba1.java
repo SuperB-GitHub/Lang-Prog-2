@@ -1,11 +1,12 @@
 package Labs;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main13(args);
+        main14(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -186,6 +187,9 @@ public class Laba1 {
         in.close();
     }
     public static void main14(String[] args) {
-        
+        Scanner in = new Scanner(System.in);
+        String num = in.nextLine();
+        System.out.println(num);
+        in.close();
     }
 }
