@@ -188,8 +188,16 @@ public class Laba1 {
     }
     public static void main14(String[] args) {
         Scanner in = new Scanner(System.in);
-        String num = in.nextLine();
-        System.out.println(num);
+        String str = in.nextLine();
+        String[] out = str.split(" ");
+        String fin="";
+        for (int i = out.length-1; i>=0; i--) {
+            fin+=out[i]+" ";
+        }
+        System.out.println(fin);
         in.close();
     }
+    // public static void main15(String[] args) {
+        
+    // }
 }
