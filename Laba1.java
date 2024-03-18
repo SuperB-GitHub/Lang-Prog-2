@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main15(args);
+        main10(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -137,6 +137,7 @@ public class Laba1 {
             45,4,90,12,23,34,5,-67,43,6,7,30,49,50,42,21,56,70,-7,12,6,
             45,32,-8,10,11,25,-3,0};
         int[] B = getSumDig(A);
+        Arrays.sort(A, 0, 0);
         System.out.println(Arrays.toString(A));
         System.out.println(Arrays.toString(B));
     }
