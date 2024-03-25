@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main19(args);
+        main25(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -356,5 +356,105 @@ public class Laba1 {
         }
     }
 
-    
+    public static void main20(String[] args) {
+        Scanner in = new Scanner(System.in);
+        boolean u = true;
+        while (u==true) {
+            System.out.println("Введите число в 10сс");
+            int num = in.nextInt();
+            if (num!=0) {
+                System.out.println("В 2сс: "+Integer.toBinaryString(num));
+            } else {
+                System.out.println("Был введен 0");
+                u=false;
+            }
+        }
+        in.close();
+    }
+
+    public static void main21(String[] args) {
+        for (int x = -10; x <= 10; x++) {
+            if (x<-5) {
+                int y = 2*Math.abs(x)-1;
+                System.out.println("При x = "+x+"; y = "+y);} 
+            else if (x>=-5 && x<=5) {
+                int y = 2*x;
+                System.out.println("При x = "+x+"; y = "+y);} 
+            else if (x>5) {
+                int y = 2+x;
+                System.out.println("При x = "+x+"; y = "+y);}       
+        }
+    }
+
+    public static void main22(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите начало диапазона: ");
+        int x1 = in.nextInt();
+        System.out.print("Введите конец диапазона: ");
+        int x2 = in.nextInt();
+        System.out.println(Arrays.toString(getRandomArray(x1,x2)));
+        in.close();
+    }
+
+    public static void main23(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите напряжение: ");
+        double u = in.nextInt();
+        System.out.print("Введите сопротивление: ");
+        double r = in.nextInt();
+        System.out.println(u/r);
+        in.close();
+    }
+
+    public static void main24(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите силу тока:");
+        int i = in.nextInt();
+        for (int index = 1; index < 4; index++) {
+            System.out.print("Введите "+index+" сопротивление: ");
+            int r = in.nextInt();
+            System.out.println("Напряжение на участке цепи "+index);
+            System.out.println(i*r);
+            System.out.println();
+        }
+        in.close();
+    }
+
+    public static void main25(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите номер дня недели (1-7): ");
+        int dayNumber = in.nextInt();
+        String dayName = getDayOfWeek(dayNumber);
+        if (dayNumber<8 && dayNumber>0) {
+            System.out.println("День недели: " + dayName);} 
+        else {System.out.println("Некорректный номер дня недели!");}
+        in.close();
+    }
+
+    public static String getDayOfWeek(int dayNumber) {
+        String dayName = "";
+        switch (dayNumber) {
+            case 1:
+                dayName = "Понедельник";
+                break;
+            case 2:
+                dayName = "Вторник";
+                break;
+            case 3:
+                dayName = "Среда";
+                break;
+            case 4:
+                dayName = "Четверг";
+                break;
+            case 5:
+                dayName = "Пятница";
+                break;
+            case 6:
+                dayName = "Суббота";
+                break;
+            case 7:
+                dayName = "Воскресенье";
+                break;}
+        return dayName;
+    }
 }
