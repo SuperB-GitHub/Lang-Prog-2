@@ -1,12 +1,10 @@
-package Labs;
-
 import java.util.Arrays;
-import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main10(args);
+        main19(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -203,18 +201,160 @@ public class Laba1 {
             45,4,90,12,23,34,5,-67,43,6,7,30,49,50,42,21,56,70,-7,12,6,
             45,32,-8,10,11,25,-3,0};
         Scanner in = new Scanner(System.in);
+        System.out.println("Введите число:");
         int num = in.nextInt();
         System.out.println(getBinSearch(A, num));
-        System.out.println(Arrays.binarySearch(A, 23));
         in.close();
     }
     public static int getBinSearch(int[] mass, int find) {
         Arrays.sort(mass);
-        if (find<mass[mass.length/2]) {
-            
-        } else {
-            
+        int low = 0;
+        int high = mass.length - 1;
+
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            int value = mass[mid];
+
+            if (value < find)
+                low = mid + 1;
+            else if (value > find)
+                high = mid - 1;
+            else
+                return mid; // key found
         }
-        return mass[0];
+        return -1;  // key not found.
     }
+    public static void main16(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите первое число:");
+        int num1 = in.nextInt();
+        System.out.println("Введите второе число:");
+        int num2 = in.nextInt();
+        System.out.println("НОД этих чисел:");
+        System.out.println(getNOD(num1, num2));
+        in.close();
+    }
+    public static int getNOD(int num1, int num2){
+        while (num1!=num2){
+            if (num1>num2) {
+                num1=num1-num2;}
+            else if(num1<num2) {
+                num2=num2-num1;}
+            else{
+                return num1;
+            }
+        }
+        return num1;
+    }
+    public static void main17(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите кол-во углов фигуры:");
+        int num = in.nextInt();
+        System.out.println("Фигура и его площадь:");
+        if (num==0) {
+            System.out.println("Круг");} 
+        else if (num==3) {
+            System.out.println("Треугольник");} 
+        else if (num==4) {
+            System.out.println("Прямоугольник");} 
+        else {
+            System.out.println("Такой фигуры нет");}
+        System.out.println(getGeom(num));
+        in.close();
+    }
+    public static double getGeom(int num){
+        Scanner in = new Scanner(System.in);
+        if (num==0) {
+            System.out.println("Введите радиус круга:");
+            int r = in.nextInt();
+            in.close();
+            return Math.PI*Math.pow(r,2);} 
+        else if (num==3) {
+            System.out.println("Введите основание и высоту:");
+            int a = in.nextInt();
+            int h = in.nextInt();
+            in.close();
+            return (1/2)*a*h;} 
+        else if (num==4) {
+            System.out.println("Введите первую и вторую сторону:");
+            int a = in.nextInt();
+            int h = in.nextInt();
+            in.close();
+            return a*h;}
+        else {
+            in.close();
+            return 0;}
+    }
+    public static void main18(String[] args) {
+        int[][] arrays = new int[10][];
+        int[] sums = new int[10];
+        for (int i = 0; i < 10; i++) {
+            arrays[i] = getRandomArray(0,100);
+            sums[i] = getCalcMass(arrays[i]);
+
+            System.out.println("Массив " + (i + 1) + ": " + Arrays.toString(arrays[i]));
+            System.out.println("Сумма элементов: " + sums[i]);
+            System.out.println();
+        }
+
+        int maxSum = sums[0];
+        int maxSumIndex = 0;
+        for (int i = 1; i < 10; i++) {
+            if (sums[i] > maxSum) {
+                maxSum = sums[i];
+                maxSumIndex = i;}}
+        System.out.println("Массив с максимальной суммой элементов: " + Arrays.toString(arrays[maxSumIndex]));
+        System.out.println("Сумма элементов: " + maxSum);
+        System.out.println("Номер массива: " + maxSumIndex);
+    }
+
+    public static int[] getRandomArray(int first, int second) {
+        Random random = new Random();
+        int[] array = new int[10];
+        for (int i = 0; i < 10; i++) {
+            array[i] = random.nextInt(first, second);}
+        return array;
+    }
+
+    public static int getCalcMass(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];}
+        return sum;
+    }
+
+    public static void main19(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите размерность квадратной матрицы: ");
+        int n = in.nextInt();
+        int[][] matrix = new int[n][n];
+        System.out.println("Введите элементы матрицы:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = in.nextInt();}}
+        System.out.print("Выберите диагональ (1 - главная, 2 - побочная): ");
+        int diagonalChoice = in.nextInt();
+        int diagonalSum = getCalcDiag(matrix,diagonalChoice);
+        System.out.println("Сумма выбранной диагонали: " + diagonalSum);
+        in.close();
+    }
+
+    public static int getCalcDiag(int[][] matrix, int diag) {
+        int sum = 0;
+        int n = matrix.length;
+        if (diag == 1) {
+            for (int i = 0; i < n; i++) {
+                sum += matrix[i][i];}
+            return sum;
+        } else if (diag == 2) {
+            for (int i = 0; i < n; i++) {
+                sum += matrix[i][n - 1 - i];}
+            return sum;
+        } else {
+            System.out.println("Некорректный выбор диагонали!");
+            return 0;
+        }
+    }
+
+    
 }
