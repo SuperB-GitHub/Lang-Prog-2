@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main25(args);
+        main10(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -135,9 +135,10 @@ public class Laba1 {
             45,4,90,12,23,34,5,-67,43,6,7,30,49,50,42,21,56,70,-7,12,6,
             45,32,-8,10,11,25,-3,0};
         int[] B = getSumDig(A);
-        Arrays.sort(A, 0, 0);
         System.out.println(Arrays.toString(A));
         System.out.println(Arrays.toString(B));
+        System.out.println(Arrays.toString(getSorted(A, B)));
+        
     }
     public static int[] getSumDig(int[] mass){
         int[] mass2 = new int[mass.length];
@@ -153,15 +154,28 @@ public class Laba1 {
         }
         return mass2;
     }
-    // public static int[] getSorted (int[] mass, int[] mass2) {
-    //     int[] mass1 = new int[mass.length];
-    //     int p = 1;
-    //     while (p!=0) {
-    //         for (int i = 0; i < mass.length; i++) {
-                
-    //         } 
-    //     }
-    // }
+
+    public static int[] getSorted (int[] mass, int[] mass2) {
+        for (int i = 0; i < mass.length; i++) {
+            for (int j = 0; j < mass.length; j++) {
+                try {
+                    if (mass2[j]>mass2[j+1]) {
+                        int temp = mass2[j];
+                        int temp2 = mass[j];
+                        mass2[j] = mass2[j+1];
+                        mass[j] = mass[j+1];
+                        mass2[j+1] = temp;
+                        mass[j+1] = temp2;
+                    }
+                } catch (Exception ArrayIndexOutOfBoundsException) {
+                    continue;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(mass2));
+        return mass;
+    }
+
     public static void main12(String[] args) {
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -220,9 +234,9 @@ public class Laba1 {
             else if (value > find)
                 high = mid - 1;
             else
-                return mid; // key found
+                return mid;
         }
-        return -1;  // key not found.
+        return -1;
     }
     public static void main16(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -312,7 +326,7 @@ public class Laba1 {
         Random random = new Random();
         int[] array = new int[10];
         for (int i = 0; i < 10; i++) {
-            array[i] = random.nextInt(first, second);}
+            array[i] = random.nextInt(second);}
         return array;
     }
 
