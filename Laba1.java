@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Laba1 {
     public static void main(String[] args) {
-        main10(args);
+        main7(args);
     }
     public static void main1(String[] args) {
         int[] X = {20,3,4,12,16,31,50,10,45,36,12,87,65,43,2,3,6,45,4,90};
@@ -97,10 +97,12 @@ public class Laba1 {
     }
     public static double getAvgGeo(int[] mass) {
         double fin=1;
+        double count=0;
         for (int i = 0; i < mass.length; i++) {
             if (mass[i]<12 && mass[i]>0)  {
-                fin=fin*mass[i];}}
-        return Math.sqrt(fin);
+                fin=fin*mass[i];
+                count++;}}
+        return Math.pow(fin,1/count);
     }
     public static void main8(String[] args) {
         int[] A = {20,3,4,12,-16,31,-50,10,45,36,12,87,65,-43,2,3,6,
