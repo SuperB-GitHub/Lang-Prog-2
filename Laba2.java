@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Laba2 {
@@ -87,6 +88,22 @@ public class Laba2 {
         int k = in.nextInt();
         System.out.println("Введите символ: ");
         String sumb = in2.nextLine();
+        String[] ArrStr = str.split(" ");
+        str="";
+        for (String word : ArrStr) {
+            if (k<word.length()) {
+                String[] temp = word.split("");
+                for (int i = 1; i <= temp.length/4; i++) {
+                    temp[4*i] = sumb;
+                }
+                word = String.join("", temp);
+            } else{
+                System.out.println("Не хватает k");
+                continue;
+            }
+            str += String.join("  ", word)+" ";
+        }
+        System.out.println(str);
         in.close();
         in2.close();
     }
