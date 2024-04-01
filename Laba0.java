@@ -1,5 +1,3 @@
-package Labs;
-
 public class Laba0 {
     public static int a=1;
     public static int b=3;
