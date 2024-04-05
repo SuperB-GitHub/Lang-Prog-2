@@ -17,7 +17,7 @@ public class Laba2 {
         return strs;
     }
     public static void main(String[] args) {
-        main4(args);
+        main5(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -106,5 +106,14 @@ public class Laba2 {
         System.out.println(str);
         in.close();
         in2.close();
+    }
+
+    public static void main5(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите русский текст:");
+        String rus = in.nextLine();
+        String[] rusarr = rus.split("");
+        System.out.println(Arrays.toString(rusarr));
+        in.close();
     }
 }
