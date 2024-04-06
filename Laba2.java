@@ -113,13 +113,16 @@ public class Laba2 {
         System.out.println("Введите русский текст:");
         String rus = in.nextLine();
         String[] rusarr = rus.split("");
-        char[] chararr = new char[rusarr.length];
+        int[] intarr = new int[rusarr.length];
         for (int i = 0; i < rusarr.length; i++) {
             char intr = rusarr[i].charAt(0);
-            System.out.println(intr);
-            // chararr[i] = Character.toInt
+            intarr[i] = intr;
         }
-        // System.out.println(Arrays.toString(chararr));
+        for (int i = 0; i < rusarr.length; i++) {
+            rusarr[i] = " "+rusarr[i]+" ";
+        }
+        System.out.println(Arrays.toString(rusarr));
+        System.out.println(Arrays.toString(intarr));
         in.close();
     }
 }
