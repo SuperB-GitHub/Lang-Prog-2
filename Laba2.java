@@ -17,7 +17,7 @@ public class Laba2 {
         return strs;
     }
     public static void main(String[] args) {
-        main8(args);
+        main9(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -163,7 +163,7 @@ public class Laba2 {
     }
 
     public static void main8(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
         String txt = in.nextLine();
         String[] txtarr = txt.split(" ");
@@ -186,4 +186,20 @@ public class Laba2 {
         in.close();
         }
 
+    public static void main9(String[] args) {
+        Scanner in = new Scanner(System.in,"Cp866");
+        System.out.println("Введите текст:");
+        String txt = in.nextLine();
+        String[] txtarr = txt.split(" ");
+        for (int i = 0; i < txtarr.length; i++) {
+            int count = 0;
+            for (int j = 1; j < txtarr.length; j++) {
+                if (txtarr[i].equals(txtarr[j])) {
+                    count++;
+                }
+            }
+            System.out.println("Слово: "+txtarr[i]+" кол-во: "+count);
+        }
+        in.close();
+    }
 }
