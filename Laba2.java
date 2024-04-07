@@ -17,7 +17,7 @@ public class Laba2 {
         return strs;
     }
     public static void main(String[] args) {
-        main5(args);
+        main6(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -109,7 +109,7 @@ public class Laba2 {
     }
 
     public static void main5(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите русский текст:");
         String rus = in.nextLine();
         String[] rusarr = rus.split("");
@@ -119,10 +119,32 @@ public class Laba2 {
             intarr[i] = intr;
         }
         for (int i = 0; i < rusarr.length; i++) {
-            rusarr[i] = " "+rusarr[i]+" ";
+            rusarr[i] = "  "+rusarr[i]+" ";
         }
         System.out.println(Arrays.toString(rusarr));
         System.out.println(Arrays.toString(intarr));
+        in.close();
+    }
+    
+    public static void main6(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите текст:");
+        String txt = in.nextLine();
+        // String[] txtarr = txt.split("");
+        char[] chararr = new char[txt.length()];
+        for (int i = 0; i < chararr.length; i++) {
+            chararr[i] = txt.charAt(i);
+        }
+        for (Character word : chararr) {
+            if (word.isAlphabetic(0)==true) {
+                continue;} 
+            else {
+                chararr[word]=' ';
+
+                
+            }
+        }
+        System.out.println(Arrays.toString(chararr));
         in.close();
     }
 }
