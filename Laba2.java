@@ -17,7 +17,7 @@ public class Laba2 {
         return strs;
     }
     public static void main(String[] args) {
-        main6(args);
+        main8(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -127,24 +127,63 @@ public class Laba2 {
     }
     
     public static void main6(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
         String txt = in.nextLine();
-        // String[] txtarr = txt.split("");
         char[] chararr = new char[txt.length()];
         for (int i = 0; i < chararr.length; i++) {
             chararr[i] = txt.charAt(i);
         }
-        for (Character word : chararr) {
-            if (word.isAlphabetic(0)==true) {
+        for (int i = 0; i < chararr.length; i++) {
+            if (Character.isAlphabetic(chararr[i])==true) {
                 continue;} 
-            else {
-                chararr[word]=' ';
-
-                
-            }
+            else {chararr[i]=' ';}
         }
         System.out.println(Arrays.toString(chararr));
         in.close();
     }
+
+    public static void main7(String[] args) {
+        String[] vowels = {"a","e","o","i","u","y"};
+        String vowel = Arrays.toString(vowels);
+        Scanner in = new Scanner(System.in,"Cp866");
+        System.out.println("Введите текст:");
+        String txt = in.nextLine();
+        String[] txtarr = txt.split(" ");
+        System.out.print("Введите длину: ");
+        int len = in.nextInt();
+        for (int i = 0; i < txtarr.length; i++) {
+            String[] temp = txtarr[i].split("");
+            if (vowel.contains(temp[0])==false && temp.length==len) {
+                txtarr[i]=" ";}
+        }
+        String fin = String.join(" ",txtarr);
+        System.out.println(fin);
+        in.close();
+    }
+
+    public static void main8(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите текст:");
+        String txt = in.nextLine();
+        String[] txtarr = txt.split(" ");
+        for (int i = 0; i < txtarr.length; i++) {
+            for (int j = 1; j < txtarr.length; j++) {
+                String[] temp = txtarr[i].split("");
+                String[] temp1 = txtarr[j].split("");
+                if (temp.length==temp1.length) {
+                    boolean[] bools = new boolean[temp1.length];
+                    for (int k = 0; k < temp.length; k++) {
+                        if (temp[k].equals(temp1[temp.length-1-k])) {
+                            bools[k]=true;}
+                    }
+                    String bool = Arrays.toString(bools);
+                    if (bool.contains("false")) {continue;}
+                    else{System.out.println(txtarr[i] +" "+ txtarr[j]);}
+                }
+            }
+        }
+        in.close();
+        }
+
 }
