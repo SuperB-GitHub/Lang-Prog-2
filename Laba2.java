@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Laba2 {
@@ -17,7 +19,7 @@ public class Laba2 {
         return strs;
     }
     public static void main(String[] args) {
-        main9(args);
+        main13(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -165,8 +167,7 @@ public class Laba2 {
     public static void main8(String[] args) {
         Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
-        String txt = in.nextLine();
-        String[] txtarr = txt.split(" ");
+        String[] txtarr = in.nextLine().split(" ");
         for (int i = 0; i < txtarr.length; i++) {
             for (int j = 1; j < txtarr.length; j++) {
                 String[] temp = txtarr[i].split("");
@@ -189,17 +190,108 @@ public class Laba2 {
     public static void main9(String[] args) {
         Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
-        String txt = in.nextLine();
-        String[] txtarr = txt.split(" ");
+        String[] txtarr = in.nextLine().split(" ");
+        Map<String,Integer> dict = new HashMap<String,Integer>();
         for (int i = 0; i < txtarr.length; i++) {
             int count = 0;
-            for (int j = 1; j < txtarr.length; j++) {
+            for (int j = 0; j < txtarr.length; j++) {
                 if (txtarr[i].equals(txtarr[j])) {
                     count++;
                 }
             }
-            System.out.println("Слово: "+txtarr[i]+" кол-во: "+count);
+            if (dict.containsKey(txtarr[i])==false) {
+                dict.put(txtarr[i], count);
+            }
         }
+        System.out.println(dict.toString());
+        in.close();
+    }
+
+    public static void main10(String[] args) {
+        String[] vowels = {"a","e","o","i","u","y"};
+        String vowel = Arrays.toString(vowels);
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите текст:");
+        String[] txtarr = in.nextLine().split("");
+        int vows = 0;
+        int cons = 0;
+        for (int i = 0; i < txtarr.length; i++) {
+            if (vowel.contains(txtarr[i]) && txtarr[i].equals(" ")==false) {
+                vows++;}
+            else if (txtarr[i].equals(" ")) {
+                continue;}
+            else{cons++;}
+        }
+        System.out.println("Гласные: "+vows+" и согласные: "+cons);
+        in.close();
+    }
+
+    public static void main11(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите мн-во точек через пробел:");
+        String[] txtarr = in.nextLine().split(" ");
+        int[] intarr = new int[txtarr.length];
+        for (int i = 0; i < txtarr.length; i++) {
+            intarr[i] = Integer.parseInt(txtarr[i]);}
+        int a=0; int b=0; int c=0; double max = 0;
+        for (int i = 0; i < intarr.length; i++) {
+            for (int j = 0; j < intarr.length; j++) {
+                for (int j2 = 0; j2 < intarr.length; j2++) {
+                    int ans = intarr[i]+intarr[j]+intarr[j2];
+                    if (ans>=max && intarr[i]!=intarr[j] && intarr[j]!=intarr[j2] && intarr[i]!=intarr[j2]) {
+                        a = intarr[i];b = intarr[j];c = intarr[j2]; max = ans;
+                    }
+                }
+            }
+        }
+
+        System.out.println("1: "+a+" 2: "+b+" 3: "+c+" max: "+max);
+        in.close();
+    }
+
+    public static void main12(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите мн-во точек через пробел:");
+        String[] txtarr = in.nextLine().split(" ");
+        int[] intarr = new int[txtarr.length];
+        for (int i = 0; i < txtarr.length; i++) {
+            intarr[i] = Integer.parseInt(txtarr[i]);}
+        int len = 10000; int num = 0; 
+        for (int i = 0; i < intarr.length; i++) {
+            int ans=0;
+            for (int j = 0; j < intarr.length; j++) {
+                ans += Math.abs(intarr[i]-intarr[j]); 
+            }
+            if (ans<=len) {
+                len = ans;
+                num = intarr[i];
+            }
+        }
+        System.out.println("Число: "+num+" сумма: "+len);
+        in.close();
+    }
+    public static void main13(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите кол-во координат: ");
+        int val = in.nextInt();
+        System.out.println("Введите "+val+" координат:");
+        int count=0;
+        String[] coords = new String[val];
+        Scanner in2 = new Scanner(System.in);
+        while (count!=val) {
+            String[] temp = in2.nextLine().split(" ");
+            int[] intarr = new int[2];
+            for (int i = 0; i < 2; i++) {
+                intarr[i] = Integer.parseInt(temp[i]);}
+            coords[count] = Arrays.toString(intarr);
+            count++;
+        }
+
+        for (int i = 0; i < coords.length; i++) {
+            
+        }
+        System.out.println(Arrays.toString(coords));
+        in2.close();
         in.close();
     }
 }
