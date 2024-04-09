@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -272,26 +273,24 @@ public class Laba2 {
     }
     public static void main13(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Введите кол-во координат: ");
-        int val = in.nextInt();
-        System.out.println("Введите "+val+" координат:");
-        int count=0;
-        String[] coords = new String[val];
-        Scanner in2 = new Scanner(System.in);
-        while (count!=val) {
-            String[] temp = in2.nextLine().split(" ");
-            int[] intarr = new int[2];
-            for (int i = 0; i < 2; i++) {
-                intarr[i] = Integer.parseInt(temp[i]);}
-            coords[count] = Arrays.toString(intarr);
-            count++;
-        }
-
-        for (int i = 0; i < coords.length; i++) {
-            
-        }
-        System.out.println(Arrays.toString(coords));
-        in2.close();
+        System.out.println("Введите координаты: ");
+        ArrayList<Integer[]> arr = new ArrayList<Integer[]>();
+        boolean u = true;
+        while (u == true) {
+            try {
+                String[] temp = in.nextLine().split(" ");
+                Integer[] intarr = new Integer[2];
+                for (int i = 0; i < 2; i++) {
+                    intarr[i] = Integer.parseInt(temp[i]);}
+                arr.add(intarr);} 
+            catch (Exception e) {u = false;}}
+        double sum = 0;
+        try {
+            for (int i = 0; i < arr.size(); i++) {
+                sum+=arr.get(i)[0]*arr.get(i+1)[1]-arr.get(i+1)[0]*arr.get(i)[1];}}
+        catch (Exception IndexOutOfBoundsException) {
+            sum+=arr.get(arr.size()-1)[0]*arr.get(0)[1]-arr.get(arr.size()-1)[1]*arr.get(0)[0];}
+        System.out.println("Площадь "+arr.size()+"-угольника равна: "+Math.abs(sum*0.5));
         in.close();
     }
 }
