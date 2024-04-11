@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Laba2 {
+public class Laba1_1 {
     public static String[] getstrsn() {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите кол-во строк: ");
