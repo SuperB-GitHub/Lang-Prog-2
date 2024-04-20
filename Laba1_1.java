@@ -20,7 +20,7 @@ public class Laba1_1 {
         return strs;
     }
     public static void main(String[] args) {
-        main13(args);
+        main8(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -94,16 +94,16 @@ public class Laba1_1 {
         String[] ArrStr = str.split(" ");
         str="";
         for (String word : ArrStr) {
-            if (k<word.length()) {
+            if (k<=word.length()) {
                 String[] temp = word.split("");
-                for (int i = 1; i <= temp.length/4; i++) {
-                    temp[4*i] = sumb;
+                for (int i = 0; i <= temp.length/k; i++) {
+                    try {temp[k*i+k-1] = sumb;} 
+                    catch (Exception e) {
+                        continue;
+                    }
                 }
                 word = String.join("", temp);
-            } else{
-                System.out.println("Не хватает k");
-                continue;
-            }
+            } 
             str += String.join("  ", word)+" ";
         }
         System.out.println(str);
@@ -118,11 +118,19 @@ public class Laba1_1 {
         String[] rusarr = rus.split("");
         int[] intarr = new int[rusarr.length];
         for (int i = 0; i < rusarr.length; i++) {
-            char intr = rusarr[i].charAt(0);
-            intarr[i] = intr;
+            if (rusarr[i].contains(" ")) {intarr[i] = 0;}
+            else if(rusarr[i].contains("ё")){intarr[i]=7;}
+            else {
+                char intr = rusarr[i].charAt(0);
+                if (intr-1071<=6) {
+                    intarr[i] = intr-1071;
+                } else {
+                    intarr[i] = intr-1070;
+                }
+            }
         }
         for (int i = 0; i < rusarr.length; i++) {
-            rusarr[i] = "  "+rusarr[i]+" ";
+            rusarr[i] = " "+rusarr[i]+"";
         }
         System.out.println(Arrays.toString(rusarr));
         System.out.println(Arrays.toString(intarr));
@@ -137,17 +145,18 @@ public class Laba1_1 {
         for (int i = 0; i < chararr.length; i++) {
             chararr[i] = txt.charAt(i);
         }
+        txt="";
         for (int i = 0; i < chararr.length; i++) {
             if (Character.isAlphabetic(chararr[i])==true) {
-                continue;} 
-            else {chararr[i]=' ';}
+                txt+=String.join("", Character.toString(chararr[i]));} 
+            else {txt+=String.join("", " ");;}
         }
-        System.out.println(Arrays.toString(chararr));
+        System.out.println(txt);
         in.close();
     }
 
     public static void main7(String[] args) {
-        String[] vowels = {"a","e","o","i","u","y"};
+        String[] vowels = {"a","e","o","i","u","y","а","о","у","ы","э","е","ё","и","ю","я"};
         String vowel = Arrays.toString(vowels);
         Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
@@ -209,7 +218,7 @@ public class Laba1_1 {
     }
 
     public static void main10(String[] args) {
-        String[] vowels = {"a","e","o","i","u","y"};
+        String[] vowels = {"a","e","o","i","u","y","а","о","у","ы","э","е","ё","и","ю","я"};
         String vowel = Arrays.toString(vowels);
         Scanner in = new Scanner(System.in);
         System.out.println("Введите текст:");
