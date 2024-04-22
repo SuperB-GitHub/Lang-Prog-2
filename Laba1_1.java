@@ -20,7 +20,7 @@ public class Laba1_1 {
         return strs;
     }
     public static void main(String[] args) {
-        main8(args);
+        main5(args);
     }
     public static void main1(String[] args) {
         String[] strs = getstrsn();
@@ -178,11 +178,12 @@ public class Laba1_1 {
         Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
         String[] txtarr = in.nextLine().split(" ");
+        System.out.println("Все обращения:");
         for (int i = 0; i < txtarr.length; i++) {
-            for (int j = 1; j < txtarr.length; j++) {
+            for (int j = 0; j < txtarr.length; j++) {
                 String[] temp = txtarr[i].split("");
                 String[] temp1 = txtarr[j].split("");
-                if (temp.length==temp1.length) {
+                if (temp.length==temp1.length && i!=j) {
                     boolean[] bools = new boolean[temp1.length];
                     for (int k = 0; k < temp.length; k++) {
                         if (temp[k].equals(temp1[temp.length-1-k])) {
@@ -220,7 +221,7 @@ public class Laba1_1 {
     public static void main10(String[] args) {
         String[] vowels = {"a","e","o","i","u","y","а","о","у","ы","э","е","ё","и","ю","я"};
         String vowel = Arrays.toString(vowels);
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in,"Cp866");
         System.out.println("Введите текст:");
         String[] txtarr = in.nextLine().split("");
         int vows = 0;
@@ -255,7 +256,7 @@ public class Laba1_1 {
             }
         }
 
-        System.out.println("1: "+a+" 2: "+b+" 3: "+c+" max: "+max);
+        System.out.println("1: "+a+" 2: "+b+" 3: "+c+" Периметр: "+max);
         in.close();
     }
 
