@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #684986;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="laba3_1.Controller">
+   <children>
+      <AnchorPane layoutY="47.0" prefHeight="352.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ChoiceBox fx:id="choizelab" layoutX="258.0" layoutY="32.0" prefWidth="150.0" style="-fx-border-color: #684986;" />
+            <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите лабу:">
+               <font>
+                  <Font name="Monospaced Bold" size="27.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите задание:">
+               <font>
+                  <Font name="Monospaced Bold" size="27.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choizezadan" layoutX="300.0" layoutY="83.0" prefWidth="150.0" style="-fx-border-color: #684986;" />
+            <Button fx:id="doing" layoutX="466.0" layoutY="22.0" mnemonicParsing="false" onAction="#doingzadan" prefHeight="88.0" prefWidth="107.0" style="-fx-border-color: #684986;" text="Выполнить" />
+            <TextArea fx:id="text" layoutX="27.0" layoutY="129.0" prefHeight="46.0" prefWidth="546.0" promptText="Введите строку" style="-fx-border-color: #684986;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="label1" layoutX="27.0" layoutY="194.0" prefHeight="140.0" prefWidth="546.0" style="-fx-border-color: #684986;" />
+         </children>
+      </AnchorPane>
+      <Text layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Лабораторная работа №3.1 и 3.2" textAlignment="CENTER" wrappingWidth="600.0">
+         <font>
+            <Font name="Monospaced Bold" size="32.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
