@@ -4,6 +4,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -297,8 +300,192 @@ public class Controller {
             for(int i=0;i<poisk18(onlynum).size();i++){
                 str = str + poisk18(onlynum).get(i) + " ";
             }
-            label1.setText(str);}
+            label1.setText(str);
         }
+
+        if (choizezadan.getValue()=="1"){
+            String str = text.getText();
+            if(str.matches("^abcdefghijklmnopqrstuv18340$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="2"){
+            String str = text.getText();
+            if(str.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="3"){
+            String str = text.getText();
+            if(str.matches("^([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="4"){
+            String str = text.getText();
+            if(str.matches("https?://?[a-zA-Z]{2,}\\.?[a-zA-Z]{2,}\\.[a-zA-Z]{2,}")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="5"){
+            String str = text.getText();
+            if(str.matches("^#([0-9a-fA-F]{6})$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="6"){
+            String str = text.getText();
+            String regex = "0[1-9]/0[1-9]/1[6-9]\\d\\d|" +
+                    "0[1-9]/1[0-2]/1[6-9]\\d\\d|" +
+                    "0[1-9]/0[1-9]/[2-9]\\d\\d\\d|" +
+                    "0[1-9]/1[0-2]/[2-9]\\d\\d\\d|" +
+                    "1\\d/0[1-9]/1[6-9]\\d\\d|" +
+                    "1\\d/1[0-2]/1[6-9]\\d\\d|" +
+                    "1\\d/0[1-9]/[2-9]\\d\\d\\d|" +
+                    "1\\d/1[0-2]/[2-9]\\d\\d\\d|" +
+                    "2[0-8]/0[1-9]/1[6-9]\\d\\d|" +
+                    "2[0-8]/1[0-2]/1[6-9]\\d\\d|" +
+                    "2[0-8]/0[1-9]/[2-9]\\d\\d\\d|" +
+                    "2[0-8]/1[0-2]/[2-9]\\d\\d\\d|" +
+                    "29/02/1[6-9][13579][26]|" +
+                    "29/02/1[6-9][02468][048]|" +
+                    "29/02/[2-9]\\d[13579][26]|" +
+                    "29/02/[2-9]\\d[02468][048]|" +
+                    "29/01[012]/1[6-9]\\d\\d|" +
+                    "29/0[13-9]/1[6-9]\\d\\d|" +
+                    "29/1[012]/[2-9]\\d\\d\\d|" +
+                    "29/0[13-9]/[2-9]\\d\\d\\d|" +
+                    "30/1[012]/1[6-9]\\d\\d|" +
+                    "30/0[13-9]/1[6-9]\\d\\d|" +
+                    "30/1[012]/[2-9]\\d\\d\\d|" +
+                    "30/0[13-9]/[2-9]\\d\\d\\d|" +
+                    "31/0[13578]/1[6-9]\\d\\d|" +
+                    "31/1[02]/1[6-9]\\d\\d|" +
+                    "31/0[13578]/[2-9]\\d\\d\\d|" +
+                    "31/1[02]/[2-9]\\d\\d\\d";
+            if(str.matches(regex)){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="7"){
+            String str = text.getText();
+            if(str.matches("[\\da-zA-Z]{1,}@[a-zA-Z]{1,}\\.?[a-zA-Z]{1,}")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="8"){
+            String str = text.getText();
+            if(str.matches("^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="9"){
+            String str = text.getText();
+            label1.setText(check9(str));
+        }
+
+        if (choizezadan.getValue()=="10"){
+            String str = text.getText();
+            if(str.matches("^[1-9]\\d{5}$")){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="11"){
+            String str = text.getText();
+            String regex = "\\d+\\.[1-9] USD|\\d+\\.[1-9] EU|\\d+\\.[1-9] RUR|\\d+\\.[1-9]\\d USD|" +
+                    "\\d+\\.[1-9]\\d EU|\\d+\\.[1-9]\\d RUR";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(str);
+            StringBuilder string = new StringBuilder();
+            while (matcher.find()) {
+                string.append(matcher.group()).append(", ");
+            }
+            label1.setText(string.toString());
+        }
+
+        if (choizezadan.getValue()=="12"){
+            String str = text.getText();
+            if(Pattern.compile("\\b(?!\\+)\\d+\\b").matcher(str).find()){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="13"){
+            String str = text.getText();
+            int open= check13(str, "\\(");
+            int close = check13(str, "\\)");
+            if (open == close) {
+                System.out.println("Скобки расставленый правильно\n" + str);
+            } else {
+                System.out.println("Скобки расставлены не правильно");
+            }
+        }
+        
+        if (choizezadan.getValue()=="14"){
+            String str = text.getText();
+            Pattern pattern = Pattern.compile("c+a+b");
+            Matcher matcher = pattern.matcher(str);
+            boolean b = matcher.matches();
+            if(b){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+        }
+
+        if (choizezadan.getValue()=="14"){
+            String str = text.getText();
+            if(test(str)){
+                label1.setText("Выражение правильное");
+            }
+            else {
+                label1.setText("Выражение неправильное");
+            }
+            System.out.println(test("google.com"));
+            System.out.println(test("reference1.ua"));
+            System.out.println(test("reference1.org"));
+            }
+    }
 
     @FXML
     void initialize() {
@@ -521,5 +708,50 @@ public class Controller {
             str = "";
         }
         return str;
+    }
+
+    public static String check9(String password) {
+        Pattern lengthPattern = Pattern.compile("[\\da-zA-Z_]{8,}");
+        Matcher lengthMatcher = lengthPattern.matcher(password);
+        if (!lengthMatcher.find()) {
+            return "Ненадежный пароль. Пароль должен состоять от 8 и более символов";
+        }
+
+        Pattern upperCasePattern = Pattern.compile("[A-Z]");
+        Matcher upperCaseMatcher = upperCasePattern.matcher(password);
+        if (!upperCaseMatcher.find()) {
+            return "Ненадежный пароль. Пароль должен содержать хотя-бы одну заглавную букву";
+        }
+
+        Pattern lowerCasePattern = Pattern.compile("[a-z]");
+        Matcher lowerCaseMatcher = lowerCasePattern.matcher(password);
+        if (!lowerCaseMatcher.find()) {
+            return "Ненадежный пароль. Пароль должен содержать хотя-бы одну маленькую букву";
+        }
+
+        Pattern digitPattern = Pattern.compile("\\d");
+        Matcher digitMatcher = digitPattern.matcher(password);
+        if (!digitMatcher.find()) {
+            return "Ненадежный пароль. Пароль должен содержать хотя-бы одну цифру";
+        }
+
+        return "Пароль надежный";
+    }
+
+    public static int check13(String text, String target) {
+        Pattern pattern = Pattern.compile(target);
+        Matcher matcher = pattern.matcher(text);
+
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
+    }
+
+    public static boolean test(String testString) {
+        Pattern pattern = Pattern.compile(".+\\.(com|ua|ru|org)");
+        Matcher matcher = pattern.matcher(testString);;
+        return matcher.matches();
     }
 }
