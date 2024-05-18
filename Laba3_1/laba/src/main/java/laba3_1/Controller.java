@@ -222,11 +222,15 @@ public class Controller {
         if (choizezadan.getValue() == "2.4"){
             ArrayList<String> mass = new ArrayList<>(List.of(text.getText().split(" ")));
             String str = " ";
+            if (str.length()/2==0) {
+                for (int i=0; i<mass.size(); i++){
+                    str = str + "«"+mass.get(i) +"» "+"->" + " «"+ mid(mass.get(i)) +"»\n ";
+                }
+                label1.setText(str);
+                
+            } else {label1.setText("Число не четное");}
 
-            for (int i=0; i<mass.size(); i++){
-                str = str + "«"+mass.get(i) +"» "+"->" + " «"+ mid(mass.get(i)) +"»\n ";
-            }
-            label1.setText(str);
+            
         }
         
         if (choizezadan.getValue()== "2.5"){
@@ -454,9 +458,9 @@ public class Controller {
             int open= check13(str, "\\(");
             int close = check13(str, "\\)");
             if (open == close) {
-                System.out.println("Скобки расставленый правильно\n" + str);
+                label1.setText("Скобки расставленый правильно");
             } else {
-                System.out.println("Скобки расставлены не правильно");
+                label1.setText("Скобки расставлены не правильно");
             }
         }
         
@@ -473,7 +477,7 @@ public class Controller {
             }
         }
 
-        if (choizezadan.getValue()=="14"){
+        if (choizezadan.getValue()=="15"){
             String str = text.getText();
             if(test(str)){
                 label1.setText("Выражение правильное");
