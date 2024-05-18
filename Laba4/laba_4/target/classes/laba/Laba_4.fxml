@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #684986;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="laba.Controller">
+   <children>
+      <AnchorPane layoutY="47.0" prefHeight="454.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Text layoutX="30.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите задание:">
+               <font>
+                  <Font name="Monospaced Bold" size="27.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choizezadan" layoutX="29.0" layoutY="118.0" prefHeight="27.0" prefWidth="606.0" style="-fx-border-color: #684986;" />
+            <Button fx:id="doing" layoutX="660.0" layoutY="16.0" mnemonicParsing="false" onAction="#doingzadan" prefHeight="130.0" prefWidth="107.0" style="-fx-border-color: #684986;" text="Выполнить" />
+            <TextArea fx:id="text" layoutX="29.0" layoutY="166.0" prefHeight="44.0" prefWidth="742.0" promptText="Введите значения" style="-fx-border-color: #684986;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="label1" layoutX="28.0" layoutY="228.0" prefHeight="203.0" prefWidth="350.0" style="-fx-border-color: #684986;" />
+            <TextArea fx:id="label2" layoutX="417.0" layoutY="228.0" prefHeight="203.0" prefWidth="350.0" style="-fx-border-color: #684986;" />
+            <Text layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите часть:">
+               <font>
+                  <Font name="Monospaced Bold" size="27.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choizepart" layoutX="320.0" layoutY="23.0" prefHeight="27.0" prefWidth="314.0" style="-fx-border-color: #684986;" />
+         </children>
+      </AnchorPane>
+      <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Лабораторная работа №4" textAlignment="CENTER" wrappingWidth="800.0">
+         <font>
+            <Font name="Monospaced Bold" size="32.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
