@@ -2,7 +2,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Lec1 {
-
     public static void main(String[] args) {
         
         Connection con = null;

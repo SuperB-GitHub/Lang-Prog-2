@@ -14,7 +14,7 @@
       <AnchorPane layoutY="224.0" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: #ffffff;">
          <children>
             <PasswordField fx:id="GetPassword" layoutX="25.0" layoutY="207.0" onAction="#getPassword" prefHeight="51.0" prefWidth="306.0" style="-fx-border-color: #0a3152;" />
-            <Button fx:id="ButtonAuth" layoutX="88.0" layoutY="378.0" mnemonicParsing="false" onAction="#butAuth" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #0a3152;" text="Войти" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="ButtonAuth" layoutX="25.0" layoutY="371.0" mnemonicParsing="false" onAction="#butAuth" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #0a3152;" text="Войти" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
@@ -30,6 +30,16 @@
                </font>
             </Label>
             <TextField fx:id="FieldMail" layoutX="25.0" layoutY="82.0" onAction="#fieldMail" prefHeight="51.0" prefWidth="306.0" style="-fx-border-color: #0a3152;" />
+            <Label fx:id="LabelError" layoutX="48.0" layoutY="335.0" text="Неправильно введен логин или пароль" textFill="RED" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="ButtonExit" layoutX="191.0" layoutY="371.0" mnemonicParsing="false" onAction="#butExit" prefHeight="51.0" prefWidth="140.0" style="-fx-background-color: #fde6a2;" text="Назад" textFill="#0a3152">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <ImageView fitHeight="140.0" fitWidth="121.0" layoutX="114.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
