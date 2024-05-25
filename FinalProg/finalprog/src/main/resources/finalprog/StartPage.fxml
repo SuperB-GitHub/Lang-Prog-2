@@ -7,37 +7,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1400.0" style="-fx-background-color: #0a3152;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalprog.ControllerStartPage">
    <children>
-      <ImageView fitHeight="232.0" fitWidth="253.0" layoutX="584.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="232.0" fitWidth="253.0" layoutX="584.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Logo.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="537.0" layoutY="35.0" prefHeight="80.0" prefWidth="325.0" text="Приветствуем!" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="537.0" layoutY="20.0" prefHeight="80.0" prefWidth="325.0" text="Приветствуем!" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label layoutX="180.0" layoutY="151.0" text="Это Система Управления Кадровыми Агентами" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="180.0" layoutY="100.0" text="Это Система Управления Кадровыми Агентами" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label layoutX="250.0" layoutY="454.0" text="Авторизируйтесь или зарегестрируйтесь" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="251.0" layoutY="402.0" text="Авторизируйтесь или зарегестрируйтесь" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonAuth" layoutX="212.0" layoutY="548.0" mnemonicParsing="false" onAction="#butAuth" prefHeight="90.0" prefWidth="364.0" style="-fx-background-color: #ffffff;" text="Войти">
+      <Button fx:id="ButtonAuth" layoutX="212.0" layoutY="489.0" mnemonicParsing="false" onAction="#butAuth" prefHeight="90.0" prefWidth="364.0" style="-fx-background-color: #ffffff;" text="Войти">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button fx:id="ButtonRegister" layoutX="822.0" layoutY="548.0" mnemonicParsing="false" onAction="#butRegister" prefHeight="90.0" prefWidth="364.0" style="-fx-background-color: #ffffff;" text="Зарегестироваться">
+      <Button fx:id="ButtonRegister" layoutX="824.0" layoutY="489.0" mnemonicParsing="false" onAction="#butRegister" prefHeight="90.0" prefWidth="364.0" style="-fx-background-color: #ffffff;" text="Зарегестироваться">
          <font>
             <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonExit" layoutX="576.0" layoutY="606.0" mnemonicParsing="false" onAction="#butExit" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #fde6a2;" text="Выход из программы" textFill="#0a3152">
+         <font>
+            <Font size="14.0" />
          </font>
       </Button>
    </children>

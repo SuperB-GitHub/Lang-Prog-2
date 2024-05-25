@@ -6,12 +6,16 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
 
 public class ControllerStartPage {
+
+    private static Scene scene1;
 
     @FXML
     private ResourceBundle resources;
@@ -26,14 +30,17 @@ public class ControllerStartPage {
     private Button ButtonRegister;
 
     @FXML
+    private Button ButtonExit;
+
+    @FXML
     void butAuth(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(App.class.getResource("Auth.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(loader.load(), 350, 675);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
+            FXMLLoader loader = new FXMLLoader(ControllerStartPage.class.getResource("Auth.fxml"));
+            Stage stage1 = new Stage();
+            Scene scene1 = new Scene(loader.load(), 350, 675);
+            stage1.initStyle(StageStyle.UNDECORATED);
+            stage1.setScene(scene1);
+            stage1.show();
         } catch (Exception e) {
             System.err.println("Exception while loading stage Auth");
         }
@@ -42,19 +49,31 @@ public class ControllerStartPage {
     @FXML
     void butRegister(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(App.class.getResource("RegisterForWork.fxml"));
-            Scene scene = new Scene(loader.load(), 350, 675);  
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
+            FXMLLoader loader = new FXMLLoader(ControllerStartPage.class.getResource("RegisterForWork.fxml"));
+            Scene scene1 = new Scene(loader.load(), 350, 675);  
+            Stage stage1 = new Stage();
+            stage1.initStyle(StageStyle.UNDECORATED);
+            stage1.setScene(scene1);
+            stage1.show();
         } catch (Exception e) {
             System.err.println("Exception while loading stage Register");
         }
     }
 
     @FXML
+    void butExit(ActionEvent event) {
+        Window window = ButtonExit.getScene().getWindow();
+        window.hide();
+    }
+
+    @FXML
     void initialize() {
     }
+
+    static void setRoot(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ControllerStartPage.class.getResource(fxml + ".fxml"));
+        scene1.setRoot(fxmlLoader.load());
+    }
+
 
 }

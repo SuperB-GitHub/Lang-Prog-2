@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -38,6 +39,12 @@ public class ControllerRegisterNotWork {
 
     @FXML
     private Button ButtonRegister;
+
+    @FXML
+    private Button ButtonExit;
+
+    @FXML
+    private Label LabelError;
 
     @FXML
     private TextField FieldCity;
@@ -78,8 +85,10 @@ public class ControllerRegisterNotWork {
 
     @FXML
     void butNotWork(ActionEvent event) throws IOException {
-        App.setRoot("RegisterNotWork");Window window = ButtonRegister.getScene().getWindow();
+        Window window = ButtonRegister.getScene().getWindow();
         window.hide();
+
+        
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("RegisterNotWork.fxml"));
             Scene scene = new Scene(loader.load(), 350, 675);  
@@ -97,6 +106,12 @@ public class ControllerRegisterNotWork {
         Window window = ButtonRegister.getScene().getWindow();
         window.hide();
         App.setRoot("LNWP");
+    }
+
+    @FXML
+    void butExit(ActionEvent event) {
+        Window window = ButtonExit.getScene().getWindow();
+        window.hide();
     }
 
     @FXML
