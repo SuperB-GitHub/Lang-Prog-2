@@ -5,14 +5,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 public class ControllerRegisterForWork {
@@ -57,39 +53,11 @@ public class ControllerRegisterForWork {
     private PasswordField Password;
 
     @FXML
-    void butForComp(ActionEvent event) throws IOException {
-        // Window window = ButtonRegister.getScene().getWindow();
-        // window.hide();
-
-        ControllerStartPage.setRoot("RegisterForWork");
-        // try {
-        //     FXMLLoader loader = new FXMLLoader(App.class.getResource("RegisterForWork.fxml"));
-        //     Scene scene = new Scene(loader.load(), 350, 675);  
-        //     Stage stage = new Stage();
-        //     stage.initStyle(StageStyle.UNDECORATED);
-        //     stage.setScene(scene);
-        //     stage.show();
-        // } catch (Exception e) {
-        //     System.err.println("Exception while loading stage Register");
-        // }
-    }
+    void butForComp(ActionEvent event) throws IOException {}
 
     @FXML
     void butNotWork(ActionEvent event) throws IOException {
         ControllerStartPage.setRoot("RegisterNotWork");
-
-        // Window window = ButtonRegister.getScene().getWindow();
-        // window.hide();
-        // try {
-        //     FXMLLoader loader = new FXMLLoader(App.class.getResource("RegisterNotWork.fxml"));
-        //     Scene scene = new Scene(loader.load(), 350, 675);  
-        //     Stage stage = new Stage();
-        //     stage.initStyle(StageStyle.UNDECORATED);
-        //     stage.setScene(scene);
-        //     stage.show();
-        // } catch (Exception e) {
-        //     System.err.println("Exception while loading stage Register");
-        // }
     }
 
     @FXML

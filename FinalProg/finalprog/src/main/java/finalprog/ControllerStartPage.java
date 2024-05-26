@@ -14,6 +14,8 @@ import javafx.stage.Window;
 
 public class ControllerStartPage {
 
+    private static Scene scene;
+
     @FXML
     private ResourceBundle resources;
 
@@ -46,8 +48,8 @@ public class ControllerStartPage {
     @FXML
     void butRegister(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(App.class.getResource("RegisterForWork.fxml"));
-            Scene scene = new Scene(loader.load(), 350, 675);  
+            FXMLLoader loader = new FXMLLoader(ControllerStartPage.class.getResource("RegisterForWork.fxml"));
+            scene = new Scene(loader.load(), 350, 675);  
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
@@ -67,10 +69,10 @@ public class ControllerStartPage {
     void initialize() {
     }
 
-    // static void setRoot(String fxml) throws IOException {
-    //     FXMLLoader fxmlLoader = new FXMLLoader(ControllerStartPage.class.getResource(fxml + ".fxml"));
-    //     scene.setRoot(fxmlLoader.load());
-    // }
+    static void setRoot(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ControllerStartPage.class.getResource(fxml + ".fxml"));
+        scene.setRoot(fxmlLoader.load());
+    }
 
 
 }
