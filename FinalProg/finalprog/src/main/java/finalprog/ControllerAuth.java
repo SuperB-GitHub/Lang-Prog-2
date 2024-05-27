@@ -37,7 +37,7 @@ public class ControllerAuth {
     @FXML
     void butAuth(ActionEvent event) throws IOException {
         String login = FieldMail.getText().trim();
-            String pass = GetPassword.getText().trim();
+        String pass = GetPassword.getText().trim();
             if (!login.equals("") && !pass.equals("")){
                     Window window = ButtonAuth.getScene().getWindow();
                     window.hide();

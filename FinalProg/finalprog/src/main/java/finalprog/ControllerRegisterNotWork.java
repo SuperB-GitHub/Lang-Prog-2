@@ -73,10 +73,27 @@ public class ControllerRegisterNotWork {
 
     @FXML
     void butRegister(ActionEvent event) throws IOException {
-        Window window = ButtonRegister.getScene().getWindow();
-        window.hide();
-        App.setRoot("LNWP");
+        DatabaseHandler dbh = new DatabaseHandler();
+        String fio = FieldFIO.getText().trim();
+        String date = FieldDate.getValue().toString();
+        String city = FieldCity.getText();
+        String mail = FieldMail.getText().trim();
+        String spec = FieldSpec.getText().trim();
+        String edu = FieldTrain.getText().trim();
+        String gender = "";
+        if (ButMan.isSelected()) {
+            gender = "Мужчина";} 
+        else {gender = "Женщина";}
+        String pass = Password.getText().trim();
+        if(!fio.equals("") && !city.equals("") && !mail.equals("") && !date.equals("") && !spec.equals("") && !pass.equals("")){
+            dbh.registerNotWork(fio, date, city, mail, spec, edu, gender, pass);
+            Window window = ButtonRegister.getScene().getWindow();
+            window.hide();
+            App.setRoot("LNWP");
+        }
+        else{LabelError.setVisible(true);}
     }
+
 
     @FXML
     void butExit(ActionEvent event) {

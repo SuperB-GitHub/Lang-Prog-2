@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,14 +47,21 @@
       </AnchorPane>
       <Pane layoutX="300.0" prefHeight="637.0" prefWidth="1099.0" style="-fx-border-color: #0a3152;">
          <children>
-            <Label fx:id="VacanAbout" layoutX="48.0" layoutY="43.0" prefHeight="55.0" prefWidth="285.0" text="Вакансии">
+            <Label fx:id="VacanAbout" layoutX="55.0" layoutY="45.0" prefHeight="55.0" prefWidth="401.0" text="Доступные вакансии">
                <font>
-                  <Font size="18.0" />
+                  <Font size="36.0" />
                </font></Label>
-            <Label fx:id="Vacan" layoutX="48.0" layoutY="137.0" prefHeight="67.0" prefWidth="229.0" text="0л">
-               <font>
-                  <Font size="18.0" />
-               </font></Label>
+            <TableView layoutX="55.0" layoutY="130.0" prefHeight="427.0" prefWidth="905.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Номер" />
+                  <TableColumn prefWidth="150.39996337890625" text="Название вакансии" />
+                  <TableColumn minWidth="0.0" prefWidth="153.5999755859375" text="Город" />
+                  <TableColumn prefWidth="128.800048828125" text="Название компании" />
+                  <TableColumn prefWidth="75.0" text="З/П" />
+                  <TableColumn prefWidth="186.39990234375" text="Номер телефона" />
+                  <TableColumn prefWidth="75.0" text="Пол" />
+               </columns>
+            </TableView>
          </children>
       </Pane>
       <Label layoutX="300.0" layoutY="638.0" prefHeight="40.0" prefWidth="1099.0" style="-fx-border-color: #0a3152;" text="Контакты: г. Ростов-на-Дону, пл. Гагарина, стр 1. Телефон: 8 800 123 45 67">

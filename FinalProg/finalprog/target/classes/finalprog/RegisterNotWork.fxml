@@ -88,7 +88,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton fx:id="ButMan" layoutX="82.0" layoutY="406.0" mnemonicParsing="false" onAction="#butMan" prefHeight="30.0" prefWidth="106.0" text="Мужской">
+            <RadioButton fx:id="ButMan" layoutX="82.0" layoutY="406.0" mnemonicParsing="false" onAction="#butMan" prefHeight="30.0" prefWidth="106.0" selected="true" text="Мужской">
                <toggleGroup>
                   <ToggleGroup fx:id="gender" />
                </toggleGroup></RadioButton>

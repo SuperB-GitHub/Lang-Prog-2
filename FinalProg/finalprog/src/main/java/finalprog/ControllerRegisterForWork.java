@@ -61,9 +61,21 @@ public class ControllerRegisterForWork {
     }
 
     @FXML
-    void butRegister(ActionEvent event) {
-        Window window = ButtonRegister.getScene().getWindow();
-        window.hide();
+    void butRegister(ActionEvent event) throws IOException {
+        DatabaseHandler dbh = new DatabaseHandler();
+        String fio = FieldFIO.getText().trim();
+        String city = FieldCity.getText();
+        String persmail = FieldPersMail.getText().trim();
+        String namecomp = FieldNameComp.getText();
+        String mailcomp = FieldMailComp.getText().trim();
+        String pass = Password.getText().trim();
+        if(!fio.equals("") && !city.equals("") && !persmail.equals("") && !namecomp.equals("") && !mailcomp.equals("") && !pass.equals("")){
+            dbh.registerForWork(fio, city, persmail, namecomp, mailcomp, pass);
+            Window window = ButtonRegister.getScene().getWindow();
+            window.hide();
+            App.setRoot("LNWP");
+        }
+        else{LabelError.setVisible(true);}
     }
 
     @FXML
