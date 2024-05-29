@@ -43,14 +43,27 @@ public class ControllerAuth {
         String pass = GetPassword.getText().trim();
             if (!login.equals("") && !pass.equals("")){
                     ResultSet result = dbh.login(login, pass);
+                    String who = result.getString("Who");
                     int count = 0;
                     while (result.next()) {
                         count++;
                     }
                     if (count==1) {
-                        Window window = ButtonAuth.getScene().getWindow();
-                        window.hide();
-                        App.setRoot("LNWP");
+                        if (who.equals("Admin")) {
+                            LabelError.setVisible(true);
+                            Window window = ButtonAuth.getScene().getWindow();
+                            window.hide();
+                        } 
+                        else if (who.equals("Company")) {
+                            LabelError.setVisible(true);
+                            Window window = ButtonAuth.getScene().getWindow();
+                            window.hide();
+                        }
+                        else if (who.equals("NotJob")) {
+                            Window window = ButtonAuth.getScene().getWindow();
+                            window.hide();
+                            App.setRoot("LNWP");
+                        }
                     } else {
                         LabelError.setVisible(true);
                     }
