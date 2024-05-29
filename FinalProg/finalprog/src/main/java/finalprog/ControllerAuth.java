@@ -2,6 +2,8 @@ package finalprog;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,15 +37,27 @@ public class ControllerAuth {
     private PasswordField GetPassword;
 
     @FXML
-    void butAuth(ActionEvent event) throws IOException {
+    void butAuth(ActionEvent event) throws IOException, SQLException {
+        DatabaseHandler dbh = new DatabaseHandler();
         String login = FieldMail.getText().trim();
         String pass = GetPassword.getText().trim();
             if (!login.equals("") && !pass.equals("")){
-                    Window window = ButtonAuth.getScene().getWindow();
-                    window.hide();
-                    App.setRoot("LNWP");
+                    ResultSet result = dbh.login(login, pass);
+                    int count = 0;
+                    while (result.next()) {
+                        count++;
+                    }
+                    if (count==1) {
+                        Window window = ButtonAuth.getScene().getWindow();
+                        window.hide();
+                        App.setRoot("LNWP");
+                    } else {
+                        LabelError.setVisible(true);
+                    }
                 }
-            else {LabelError.setVisible(true);}
+            else {
+                LabelError.setVisible(true);
+            }
     }
 
     @FXML

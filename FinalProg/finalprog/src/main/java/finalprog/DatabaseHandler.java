@@ -3,6 +3,7 @@ package finalprog;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseHandler {
@@ -60,5 +61,19 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet login(String mail, String pass){
+        ResultSet rs = null;
+        String select = "SELECT * FROM " + DBParam.TABLE_AUTH + " WHERE " + DBParam.AUTH_MAIL + "= ? AND " + DBParam.AUTH_PASS + "= ?";
+        try {
+            PreparedStatement prst = getDBConection().prepareStatement(select);
+            prst.setString(1, mail);
+            prst.setString(2, pass);
+            rs = prst.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
     }
 }

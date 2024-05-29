@@ -30,7 +30,7 @@
                </font>
             </Label>
             <TextField fx:id="FieldMail" layoutX="25.0" layoutY="82.0" onAction="#fieldMail" prefHeight="51.0" prefWidth="306.0" style="-fx-border-color: #0a3152;" />
-            <Label fx:id="LabelError" layoutX="48.0" layoutY="335.0" text="Неправильно введен логин или пароль" textFill="RED" visible="false">
+            <Label fx:id="LabelError" contentDisplay="BOTTOM" layoutX="48.0" layoutY="335.0" text="Неправильно введен логин или пароль" textFill="RED" visible="false">
                <font>
                   <Font size="14.0" />
                </font>
