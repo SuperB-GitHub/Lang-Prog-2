@@ -58,6 +58,7 @@ public class ControllerAuth {
                             LabelError.setVisible(true);
                             Window window = ButtonAuth.getScene().getWindow();
                             window.hide();
+                            App.setRoot("LCV");
                         }
                         else if (who.equals("NotJob")) {
                             Window window = ButtonAuth.getScene().getWindow();
